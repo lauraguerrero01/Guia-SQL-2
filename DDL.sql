@@ -18,6 +18,25 @@ CREATE TABLE Producto (
 
 );
 
+-- Tabla para logs de triggers
+CREATE TABLE Log_Eventos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_evento VARCHAR(50),
+    descripcion TEXT,
+    fecha_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Tabla para registrar los productos insertados
+CREATE TABLE Log_Inserciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_producto VARCHAR(100),
+    precio DOUBLE,
+    fecha_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
 ALTER TABLE Producto
 ADD constraint FK_codigofabricante_Producto
 foreign key (codigo_fabricante) REFERENCES Fabricante (codigo);
